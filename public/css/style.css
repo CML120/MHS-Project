@@ -168,8 +168,9 @@ button:hover, option, select:hover {
   }
 
   img {
-    max-width:100%;
-    border: 5px solid rgb(14, 53, 30);
+    max-width:95%;
+    border: 7px solid rgb(14, 53, 30);
+    
   }
 
 .armor-table{
@@ -184,7 +185,7 @@ background-color: lightgreen;
 
 }
 
-p{
+p, #selectedArmorList{
   font-size: 22px;
   font-weight: bold; 
 }

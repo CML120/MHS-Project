@@ -66,6 +66,7 @@ function saveArmorSet(armorSetId, armorSetName) {
     });
 }
 
+
 function displaySelectedArmor(armorSet) {
   const listItem = document.createElement('li');
   listItem.textContent = armorSet;

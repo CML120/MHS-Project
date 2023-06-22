@@ -98,4 +98,25 @@ router.post('/save-armor-sets', withAuth, async (req, res) => {
   // }
 });
 
+router.delete('/delete-armor-sets/:armorSetId', withAuth, async (req, res) => {
+  const { armorSetId } = req.params;
+  const userId = req.session.user_id;
+
+  try {
+    // Check if the armor set belongs to the logged-in user
+    const armorSet = await Armor.findOne({ where: { set_Id: armorSetId, user_id: userId } });
+
+    if (!armorSet) {
+      return res.status(404).json({ message: 'Armor not found' });
+    }
+
+    // Delete the armor set
+    await armorSet.destroy();
+
+    res.status(200).json({ message: 'Armor deleted!' });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
