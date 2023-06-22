@@ -9,32 +9,32 @@ deleteButtons.forEach((button) => {
       const armorId = button.dataset.armorId;
   
       //removes the row 
-      const armorRow = button.parentNode.parentNode;
-          armorRow.remove();
-          console.log('Armor piece deleted!');
-
-    //   try {
-    //     const response = await fetch(`/delete-armor-sets/${armorId}`, {
-    //       method: 'DELETE',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       }
-    //     });
-  
-    //     console.log(response);
-    //     if (response.ok) {
-    //       // Successfully deleted armor piece (row)
-    //       const armorRow = button.parentNode.parentNode;
+    //   const armorRow = button.parentNode.parentNode;
     //       armorRow.remove();
     //       console.log('Armor piece deleted!');
-    //     } else {
-    //       // Successfully deleted armor piece
-    //       console.log('Armor piece deleted!');
-    //     }
-    //   } catch (err) {
-    //     // network errors
-    //     console.error('Network error:', err);
-    //   }
+
+      try {
+        const response = await fetch(`/api/armor/delete-armor-sets/${armorId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+  
+        console.log(response);
+        if (response.ok) {
+          // Successfully deleted armor piece (row)
+          const armorRow = button.parentNode.parentNode;
+          armorRow.remove();
+          console.log('Armor piece deleted!');
+        } else {
+          // Successfully deleted armor piece
+          console.log('Armor piece deleted!');
+        }
+      } catch (err) {
+        // network errors
+        console.error('Network error:', err);
+      }
     });
   });
 

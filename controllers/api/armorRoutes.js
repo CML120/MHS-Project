@@ -99,10 +99,12 @@ router.post('/save-armor-sets', withAuth, async (req, res) => {
 });
 
 router.delete('/delete-armor-sets/:armorSetId', withAuth, async (req, res) => {
+  try {
+    console.log(req.params)
   const { armorSetId } = req.params;
   const userId = req.session.user_id;
 
-  try {
+  
     // Check if the armor set belongs to the logged-in user
     const armorSet = await Armor.findOne({ where: { set_Id: armorSetId, user_id: userId } });
 
