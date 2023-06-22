@@ -1,5 +1,16 @@
 # Monster Hunter Armor Set Builder
-Monster Hunter Armor Set Builder is a web application that allows users to create and save custom armor sets for their monster hunting needs.  With Monster Hunter Armor Set Builder, users can easily build their dream armor combinations and access them in their profile whenever they need.
+[Monster Hunter Armor Set Builder](https://mhs-project-f0451302321b.herokuapp.com/login) is a web application that allows users to create and save custom armor sets for their monster hunting needs.  With Monster Hunter Armor Set Builder, users can easily build their dream armor combinations and access them in their profile whenever they need.
+
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Contribution](#how-to-contribute)
+- [Contact](#contact)
+- [Credits](#credits)
+
+![Alt text](image-3.png)
 
 # User Story
 As a user  
@@ -46,12 +57,12 @@ Start the application using the appropriate npm command.
 Access the application through your preferred web browser.
 
 
-# Contributing
+# How to Contribute
 
 Contributions to Armor Builder are welcome! If you find any bugs or have suggestions for new features, please create an issue on the GitHub repository. If you would like to contribute code, please fork the repository and submit a pull request with your changes.
 
 # License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.   [![Generic badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/.)
 
 # Contact
 For any inquiries or support, please email us.
