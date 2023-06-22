@@ -9,29 +9,79 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Abel;
+  cursor: url("../images/mhw_normal.cur"), url("../images/mhw_link_hand.cur"), default;
+}
+
+a {
+  cursor: url("../images/mhw_link_hand.cur"), url("../images/mhw_link_hand.cur"), default;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  
 }
 
 header {
-  background-image: linear-gradient(to right, green, lightgreen);
-  height: 129px;
+  /* background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(24, 3, 116)); */
+  background-image: url("../images/mhwallpapernav1.jpg");
+
+  height: 150px;
+  opacity: 0.88;
 }
 
+body {
+  background-image: url("../images/mhwallpaper1.jpg");
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  
+}
+
+
 h1 {
-  font-size: 46px;
+  font-size: 36px;
   font-family: MonsterHunter;
-  background: -webkit-linear-gradient(rgb(199, 76, 76) , rgb(38, 38, 206));
+  background: -webkit-linear-gradient(rgb(15, 172, 235) , rgb(0, 255, 55));
   -webkit-background-clip: text; /* THIS IS FINE */
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  
 }
-#navLi 
+
+#navLi
   {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    font-size: 25px;
+    font-family: Abel;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    /* min-height: fit-content; */
+    
 }
 
+#navLi a:hover{
+  transform: scale(1.33);
+  color: rgb(53, 185, 53);
+}
+
+button{
+  font-size: 30px;
+  font-family: Abel;
+  text-shadow: 2px 2px 4px grey;
+  padding: 2px;
+  font-weight: bold;
+  
+}
+
+
+span {
+  display: inline-block;
+  vertical-align: top;
+}
 
 ul {
   margin-top: 25px;
@@ -43,41 +93,30 @@ li {
   justify-content: start;
   vertical-align: baseline;
 }
-.armor-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.armor-table th,
-.armor-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.armor-table th {
-  background-color: #f2f2f2;
-}
-
-.armor-table tr:hover {
-  background-color: #f5f5f5;
-}
-
-.armor-table .armor-row {
-  display: none;
-}
 
 input {
   margin: 3px;
   padding: 9px;
 }
 
-/* header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-} */
+#equipmentBox {
+  border-right: 3px solid black;
+  background-color: brown;
+  width: auto;
+  height: auto;
+}
 
-button {
-  padding: 2px;
+#display {
+  background-color: orange;
+  background-size: cover;
+  width: 500px;
+  height: 380px;
+}
+
+.equipment {
+  border: 2px solid black;
+  border-radius: 7px;
+  background-color: lightcyan;
 }
 
 .account {
@@ -93,6 +132,61 @@ button {
 
 .saveDelete { /* for now */
   margin-left: 9px;
+}
+
+form {
+  font-size: 35px;
+  font-family: Abel;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.card{
+  font-size: 24px;
+  font-family: Abel;
+  text-shadow: 1px 1px 2px grey;
+  background-color: transparent;
+  border: none;
+  /* border: 5px solid rgb(14, 53, 30); */
+}
+
+option {
+  font-size: 24px;
+  font-family: Abel;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.MH-label{
+  font-size: 36px;
+  font-family: MonsterHunter;
+  text-shadow: 1px 1px 2px green;
+
+}
+
+button:hover, option, select:hover {
+  box-shadow: 5px 8px 8px #176435;
+  cursor: url("../images/mhw_link_hand.cur"), url("../images/mhw_link_hand.cur"), default;
+  }
+
+  img {
+    max-width:100%;
+    border: 5px solid rgb(14, 53, 30);
+  }
+
+.armor-table{
+  font-size: 28px;
+  font-family: Abel;
+  text-shadow: 1px 1px 2px grey;
+  
+}
+
+.armor-type-button:hover{
+background-color: lightgreen;
+
+}
+
+p{
+  font-size: 22px;
+  font-weight: bold; 
 }
 
 /* .no-button {
