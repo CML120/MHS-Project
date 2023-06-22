@@ -1,19 +1,17 @@
-<div class="card">
-  <div class="card-body">
+
     <h4>Profile</h4>
     <div id="savedArmorSets">
-      {{#if armorSets}}
-        <h5>Saved Armor Sets:</h5>
-        <ul>
-          {{#each armorSets}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <p>No armor sets saved.</p>
-      {{/if}}
-    </div>
-  </div>
+{{#if armors.length}}
+      {{#each armors}}
+      <tr class="armor-row" data-type="{{this.type}}">
+        <td>{{this.name}}</td>
+        <td>{{this.type}}</td>
+      
+      </tr>
+    {{/each}}
+    {{else}}
+    <p>No Armor Saved</p>
+    {{/if}}
 </div>
 
 <script src="/js/profile.js"></script>

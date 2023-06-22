@@ -9,13 +9,13 @@ const db = require('../models')
 router.get('/', async (req, res) => {
   const armorData = await Armor.findAll({ raw: true}) 
   const armorTypes = ['head', 'chest', 'gloves', 'waist', 'legs'];
-  res.render('homepage', { armors: armorData, types: armorTypes });
+  res.render('homepage', { logged_in: req.session.logged_in, armors: armorData, types: armorTypes });
 });
 
 router.get('/homepage', async (req, res) => {
   const armorData = await Armor.findAll({ raw: true}) 
   const armorTypes = ['head', 'chest', 'gloves', 'waist', 'legs'];
-  res.render('homepage', { armors: armorData, types: armorTypes });
+  res.render('homepage', {logged_in: req.session.logged_in, armors: armorData, types: armorTypes });
 
 });
 
@@ -46,9 +46,13 @@ router.get('/homepage', async (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    const armorData = await db.Armor.findAll()
+    const armorData = await db.Armor.findAll({ 
+      where : {
+        user_id: req.session.user_id
+      }
+    })
     const armors = armorData.map(armor=>armor.get({plain:true}));
-    res.render('profile', { armors });
+    res.render('profile', { logged_in: req.session.logged_in, armors });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
@@ -56,22 +60,22 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/build', async (req, res) => {
-  res.render('build');
+  res.render('build', {logged_in: req.session.logged_in});
 });
 
-router.post('/save-armor', async (req, res) => {
-  try {
-    const { type, name } = req.body;
-    const armor = await db.Armor.create({ type, name });
-    res.redirect('/profile');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-});
+// router.post('/save-armor', async (req, res) => {
+//   try {
+//     const { type, name } = req.body;
+//     const armor = await db.Armor.create({ type, name });
+//     res.redirect('/profile');
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 
 router.get('/about', async (req, res) => {
-  res.render('about');
+  res.render('about',{logged_in: req.session.logged_in});
 });
 
 

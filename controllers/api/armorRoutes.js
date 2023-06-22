@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Armor } = require('../../models');
+const { Armor, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const fetch = require('node-fetch');
 const { getHeadArmor, getChestArmor, getGloves, getWaistArmor, getLegArmor } = require('../../utils/fetchMHdata')
@@ -58,12 +58,12 @@ router.get('/build', withAuth, async (req, res) => {
 
 router.post('/savearmor', withAuth, async (req, res) => {
   try {
-    const { armorSet } = req.body;
+    const { armorSetId } = req.body;
     const userId = req.session.user_id;
 
     // Create armor set
     const armorData = await Armor.create({
-      name: armorSet,
+      armorSetId: armorSetId,
       user_id: userId,
     });
 
@@ -74,25 +74,28 @@ router.post('/savearmor', withAuth, async (req, res) => {
   }
 });
 
-router.post('/api/profile/save-armor-sets', withAuth, async (req, res) => {
-  try {
-    const { armorSets } = req.body;
+router.post('/save-armor-sets', withAuth, async (req, res) => {
+  // try {
+    const { armorSetName } = req.body;
     const userId = req.session.user_id;
 
-    // Assuming you have a User model
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+    // Create armor set
+    const armorData = await Armor.create({
+      name: armorSetName,
+      user_id: userId,
+    });
+
+    res.status(200).json({ message: 'Armor set saved successfully' });
+    // }
 
     // Save armor sets to the user's profile
-    user.armorSets = armorSets;
-    await user.save();
+  
 
-    res.status(200).json({ message: 'Armor sets saved successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to save armor sets' });
-  }
+  
+  // catch (err) {
+    // console.error(err);
+    // res.status(500).json({ error: 'Failed to save armor sets' });
+  // }
 });
+
 module.exports = router;
