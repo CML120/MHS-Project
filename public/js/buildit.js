@@ -1,4 +1,3 @@
-
 // Get DOM element
 const armorTypeSelect = document.getElementById('armorType');
 const armorSetSelect = document.getElementById('armorSet');

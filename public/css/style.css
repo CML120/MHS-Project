@@ -190,6 +190,12 @@ p, #selectedArmorList{
   font-weight: bold; 
 }
 
+th{
+  width: 350px;
+  padding: 2px;
+}
+
+
 /* .no-button {
   background: none;
   border: none;

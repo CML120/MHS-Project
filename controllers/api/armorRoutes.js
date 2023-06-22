@@ -8,7 +8,7 @@ const { getHeadArmor, getChestArmor, getGloves, getWaistArmor, getLegArmor } = r
 
 //this is the route to this router http://localhost:3001/api/armor
 
-router.get('/:type',  async (req, res) => {
+router.get('/:type', async (req, res) => {
   try {
     const { type } = req.params;
 
@@ -76,35 +76,36 @@ router.post('/savearmor', withAuth, async (req, res) => {
 
 router.post('/save-armor-sets', withAuth, async (req, res) => {
   // try {
-    const { armorSetName } = req.body;
-    const userId = req.session.user_id;
+  const { armorSetName } = req.body;
+  const userId = req.session.user_id;
 
-    // Create armor set
-    const armorData = await Armor.create({
-      name: armorSetName,
-      user_id: userId,
-    });
+  // Create armor set
+  const armorData = await Armor.create({
+    name: armorSetName,
+    user_id: userId,
+  });
 
-    res.status(200).json({ message: 'Armor set saved successfully' });
-    // }
+  res.status(200).json({ message: 'Armor set saved successfully' });
+  // }
 
-    // Save armor sets to the user's profile
-  
+  // Save armor sets to the user's profile
 
-  
+
+
   // catch (err) {
-    // console.error(err);
-    // res.status(500).json({ error: 'Failed to save armor sets' });
+  // console.error(err);
+  // res.status(500).json({ error: 'Failed to save armor sets' });
   // }
 });
 
+
+//Route for deleting selected armor from profile
 router.delete('/delete-armor-sets/:armorSetId', withAuth, async (req, res) => {
   try {
     console.log(req.params)
-  const { armorSetId } = req.params;
-  const userId = req.session.user_id;
+    const { armorSetId } = req.params;
+    const userId = req.session.user_id;
 
-  
     // Check if the armor set belongs to the logged-in user
     const armorSet = await Armor.findOne({ where: { set_Id: armorSetId, user_id: userId } });
 
@@ -112,8 +113,10 @@ router.delete('/delete-armor-sets/:armorSetId', withAuth, async (req, res) => {
       return res.status(404).json({ message: 'Armor not found' });
     }
 
-    // Delete the armor set
-    await armorSet.destroy();
+    // remove the armor set from user
+    armorSet.user_id = null;
+    console.log(armorSet.user_id)
+    await armorSet.save();
 
     res.status(200).json({ message: 'Armor deleted!' });
   } catch (err) {
