@@ -61,7 +61,6 @@ router.post('/savearmor', withAuth, async (req, res) => {
     const { armorSetId } = req.body;
     const userId = req.session.user_id;
 
-    // Create armor set
     const armorData = await Armor.create({
       armorSetId: armorSetId,
       user_id: userId,
@@ -75,45 +74,31 @@ router.post('/savearmor', withAuth, async (req, res) => {
 });
 
 router.post('/save-armor-sets', withAuth, async (req, res) => {
-  // try {
   const { armorSetName } = req.body;
   const userId = req.session.user_id;
 
-  // Create armor set
   const armorData = await Armor.create({
     name: armorSetName,
     user_id: userId,
   });
 
   res.status(200).json({ message: 'Armor set saved successfully' });
-  // }
 
-  // Save armor sets to the user's profile
-
-
-
-  // catch (err) {
-  // console.error(err);
-  // res.status(500).json({ error: 'Failed to save armor sets' });
-  // }
 });
 
 
-//Route for deleting selected armor from profile
 router.delete('/delete-armor-sets/:armorSetId', withAuth, async (req, res) => {
   try {
     console.log(req.params)
     const { armorSetId } = req.params;
     const userId = req.session.user_id;
 
-    // Check if the armor set belongs to the logged-in user
     const armorSet = await Armor.findOne({ where: { set_Id: armorSetId, user_id: userId } });
 
     if (!armorSet) {
       return res.status(404).json({ message: 'Armor not found' });
     }
 
-    // remove the armor set from user
     armorSet.user_id = null;
     console.log(armorSet.user_id)
     await armorSet.save();
