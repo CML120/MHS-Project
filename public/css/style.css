@@ -17,13 +17,13 @@ a {
   cursor: url("../images/mhw_link_hand.cur"), url("../images/mhw_link_hand.cur"), default;
   color: white;
   text-shadow: 2px 2px 4px black;
-  
 }
 
 header {
-  /* background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(24, 3, 116)); */
   background-image: url("../images/mhwallpapernav1.jpg");
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 150px;
   opacity: 0.88;
 }
@@ -35,48 +35,40 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  
 }
-
 
 h1 {
-  font-size: 36px;
+  font-size: 25px;
   font-family: MonsterHunter;
-  background: -webkit-linear-gradient(rgb(15, 172, 235) , rgb(0, 255, 55));
-  -webkit-background-clip: text; /* THIS IS FINE */
+  background: -webkit-linear-gradient(rgb(15, 172, 235), rgb(0, 255, 55));
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  
+  margin-top: 10px;
 }
 
-#navLi
-  {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    font-size: 25px;
-    font-family: Abel;
-    text-shadow: 1px 1px 2px black;
-    font-weight: bold;
-    /* min-height: fit-content; */
-    
+#navLi {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  font-size: 25px;
+  font-family: Abel;
+  text-shadow: 1px 1px 2px black;
+  font-weight: bold;
 }
 
-#navLi a:hover{
+#navLi a:hover {
   transform: scale(1.33);
   color: rgb(53, 185, 53);
 }
 
-button{
-  font-size: 30px;
+button {
   font-family: Abel;
   text-shadow: 2px 2px 4px grey;
   padding: 2px;
   font-weight: bold;
-  
 }
-
 
 span {
   display: inline-block;
@@ -121,7 +113,7 @@ input {
 
 .account {
   font-size: 20px;
-  font-family: 'Times New Roman', Times, serif; /* for now */
+  font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   text-align: end;
   display: flex;
@@ -130,7 +122,7 @@ input {
   padding: 2px;
 }
 
-.saveDelete { /* for now */
+.saveDelete {
   margin-left: 9px;
 }
 
@@ -140,13 +132,12 @@ form {
   text-shadow: 1px 1px 2px grey;
 }
 
-.card{
+.card {
   font-size: 24px;
   font-family: Abel;
   text-shadow: 1px 1px 2px grey;
   background-color: transparent;
   border: none;
-  /* border: 5px solid rgb(14, 53, 30); */
 }
 
 option {
@@ -155,58 +146,50 @@ option {
   text-shadow: 1px 1px 2px grey;
 }
 
-.MH-label{
+.MH-label {
   font-size: 36px;
   font-family: MonsterHunter;
   text-shadow: 1px 1px 2px green;
-
 }
 
-button:hover, option, select:hover {
+button:hover,
+option,
+select:hover {
   box-shadow: 5px 8px 8px #176435;
   cursor: url("../images/mhw_link_hand.cur"), url("../images/mhw_link_hand.cur"), default;
-  }
+}
 
-  img {
-    max-width:95%;
-    border: 7px solid rgb(14, 53, 30);
-    
-  }
+img {
+  max-width: 95%;
+  border: 7px solid rgb(14, 53, 30);
+}
 
-.armor-table{
+.armor-table {
   font-size: 28px;
   font-family: Abel;
   text-shadow: 1px 1px 2px grey;
-  
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.armor-type-button:hover{
-background-color: lightgreen;
-
+.armor-table th,
+.armor-table td {
+  border: 1px solid black;
+  padding: 8px;
 }
 
-p, #selectedArmorList{
+.armor-type-button:hover {
+  background-color: lightgreen;
+}
+
+p,
+#selectedArmorList {
   font-size: 22px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-th{
+th {
   width: 350px;
   padding: 2px;
 }
 
-
-/* .no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
-}
-
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-} */
