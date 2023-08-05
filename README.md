@@ -11,14 +11,14 @@
 - [Credits](#credits)
 
 ![Alt text](image-3.png)
-
+```md
 # User Story
 As a user  
 I want to be able to visit the Armor Builder website and create personalized armor sets.   
 I want to have the ability to select different armor types and choose specific armor sets for each type.   
 Once I have built my armor sets, I want to be able to save them and view them in my profile.  
 This way, I can easily access and reference my custom armor sets before starting a gaming session.
-
+```
 # Features
 User authentication: Users can sign up for an account and log in to access the Armor Builder features.
 
